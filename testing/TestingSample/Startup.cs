@@ -9,6 +9,7 @@ namespace TestingSample
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddScoped<CarsRepository>();
         }
 
         public void Configure(IApplicationBuilder app)
