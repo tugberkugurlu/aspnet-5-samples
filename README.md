@@ -17,6 +17,7 @@
 ## Specifics
 
  - [ASP.NET 5 and Log Correlation by Request Id](http://www.tugberkugurlu.com/archive/asp-net-5-and-log-correlation-by-request-id)
+ - [Best practices for private config data and connection strings in configuration in ASP.NET and Azure](http://www.hanselman.com/blog/BestPracticesForPrivateConfigDataAndConnectionStringsInConfigurationInASPNETAndAzure.aspx)
 
 ## Amazing Videos
 

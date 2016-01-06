@@ -1,0 +1,12 @@
+{
+    "version": "1.0.0",
+    "dependencies": {
+        "Microsoft.AspNet.Hosting": "1.0.0-rc1-final",
+        "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
+        "Microsoft.AspNet.Mvc": "6.0.0-rc1-final"
+    },
+    "frameworks": {
+        "net451": {},
+        "dotnet5.4": {}
+    }
+}
