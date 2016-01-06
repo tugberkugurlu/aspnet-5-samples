@@ -1,0 +1,10 @@
+{
+    "version": "1.0.0",
+    "dependencies": {
+        "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc1-final"
+    },
+    "frameworks": {
+        "net451": {},
+        "dotnet5.4": {}
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "version": "1.0.0",
+    "compilationOptions": {
+        "emitEntryPoint": true
+    },
+    "dependencies": {
+        "Microsoft.AspNet.Hosting": "1.0.0-rc1-final",
+        "Microsoft.AspNet.Server.Kestrel": "1.0.0-rc1-final",
+        "Microsoft.AspNet.Mvc": "6.0.0-rc1-final",
+        "Serilog.Framework.Logging": "1.0.0-rc1-final-10071",
+        "logging-lib": ""
+    },
+    "frameworks": {
+        "dnx451": {
+            "dependencies": {
+                "Serilog.Sinks.ElasticSearch": "2.0.60"
+            }
+        },
+        "dnxcore50": {}
+    }
+}
