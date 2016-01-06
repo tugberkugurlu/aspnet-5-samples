@@ -21,3 +21,9 @@
 ## Amazing Videos
 
  - [Class Libraries](https://channel9.msdn.com/Events/ASPNET-Events/ASPNET-Fall-Sessions/Class-Libraries)
+ 
+## Samples and Projects
+
+ - [ModernShopping](https://github.com/tugberkugurlu/ModernShopping)
+ - [dotnetcli-aspnet5](https://github.com/davidfowl/dotnetcli-aspnet5)
+ - [k-http](https://github.com/tugberkugurlu/k-http)
