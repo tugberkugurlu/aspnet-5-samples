@@ -12,4 +12,4 @@ nginx:
   ports:
     - "5000:80"
   links:
-    - webapp
+    - webapp:webapp
