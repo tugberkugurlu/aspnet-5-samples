@@ -1,0 +1,6 @@
+auth:
+  build: .
+  dockerfile: docker-webapp.dockerfile
+  container_name: hasample_webapp
+  ports:
+    - "5090:5090"
