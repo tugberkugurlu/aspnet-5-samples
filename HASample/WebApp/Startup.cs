@@ -8,10 +8,14 @@ namespace HelloWorldWeb
 {
     public class Startup 
     {
+        private readonly ILogger _logger;
+        
         public Startup(ILoggerFactory loggerFactory) 
         {
             loggerFactory.MinimumLevel = LogLevel.Debug;
             loggerFactory.AddConsole();
+            
+            _logger = loggerFactory.CreateLogger<Startup>();
         }
         
         public void Configure(IApplicationBuilder app)
@@ -19,8 +23,19 @@ namespace HelloWorldWeb
             app.Run(async ctx => 
             {
                 ctx.Response.StatusCode = 200;
-                await ctx.Response.WriteAsync("Hello world!");
+                await ctx.Response.WriteAsync($"Hello world from {GetMachineName()}!");
             });
+        }
+        
+        private static string GetMachineName() 
+        {
+            var machineName = Environment.GetEnvironmentVariable("HOSTNAME");
+            if(machineName == null) 
+            {
+                machineName = Environment.GetEnvironmentVariable("COMPUTERNAME");
+            }
+            
+            return machineName;
         }
         
         public static void Main(string[] args) => WebApplication.Run<Startup>(args);
