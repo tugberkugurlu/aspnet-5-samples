@@ -29,11 +29,15 @@ namespace HelloWorldWeb
         
         private static string GetMachineName() 
         {
+#if DNX451
+            var machineName = Environment.MachineName;
+#else  
             var machineName = Environment.GetEnvironmentVariable("HOSTNAME");
             if(machineName == null) 
             {
                 machineName = Environment.GetEnvironmentVariable("COMPUTERNAME");
             }
+#endif
             
             return machineName;
         }
