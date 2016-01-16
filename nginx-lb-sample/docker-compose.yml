@@ -1,0 +1,23 @@
+webapp1:
+  build: .
+  dockerfile: docker-webapp.dockerfile
+  container_name: hasample_webapp1
+  ports:
+    - "5091:5090"
+    
+webapp2:
+  build: .
+  dockerfile: docker-webapp.dockerfile
+  container_name: hasample_webapp2
+  ports:
+    - "5092:5090"
+
+nginx:
+  build: .
+  dockerfile: docker-nginx.dockerfile
+  container_name: hasample_nginx
+  ports:
+    - "5000:80"
+  links:
+    - webapp1
+    - webapp2
