@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using System.Text;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
@@ -23,7 +25,16 @@ namespace HelloWorldWeb
             app.Run(async ctx => 
             {
                 ctx.Response.StatusCode = 200;
-                await ctx.Response.WriteAsync($"Hello world from {GetMachineName()}!");
+                ctx.Response.Headers["Content-Type"] = "text/html";
+                StringBuilder builder = new StringBuilder();
+                builder.AppendLine($"<div>Hello from {GetMachineName()}! Here is my context:</div>");
+                builder.AppendLine("<hr/>");
+                foreach(DictionaryEntry envVar in System.Environment.GetEnvironmentVariables())
+                {
+                    builder.AppendLine(envVar.Key  + ":" + envVar.Value);
+                }
+                
+                await ctx.Response.WriteAsync($"<pre>{builder.ToString()}</pre>");
             });
         }
         
