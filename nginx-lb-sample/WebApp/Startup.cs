@@ -9,15 +9,11 @@ using Microsoft.Extensions.Logging;
 namespace HelloWorldWeb 
 {
     public class Startup 
-    {
-        private readonly ILogger _logger;
-        
+    {   
         public Startup(ILoggerFactory loggerFactory) 
         {
             loggerFactory.MinimumLevel = LogLevel.Debug;
             loggerFactory.AddConsole();
-            
-            _logger = loggerFactory.CreateLogger<Startup>();
         }
         
         public void Configure(IApplicationBuilder app)
