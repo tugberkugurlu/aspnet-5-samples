@@ -2,7 +2,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
-using Microsoft.AspNet.Http.Features;
 using Microsoft.AspNet.Mvc;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -14,7 +13,7 @@ namespace ProductsWebApp
         public Startup(ILoggerFactory loggerFactory) 
         {
             loggerFactory.MinimumLevel = LogLevel.Debug;
-            loggerFactory.AddConsole();
+            loggerFactory.AddConsole(LogLevel.Debug);
         }
         
         public void ConfigureServices(IServiceCollection services) 
@@ -49,27 +48,15 @@ namespace ProductsWebApp
     public class RequestIdMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly ILogger _logger;
 
-        public RequestIdMiddleware(RequestDelegate next, ILogger<RequestIdMiddleware> logger)
+        public RequestIdMiddleware(RequestDelegate next)
         {
             _next = next;
-            _logger = logger;
         }
 
         public async Task Invoke(HttpContext context)
         {
-            var requestIdFeature = context.Features.Get<IHttpRequestIdentifierFeature>();
-            if (requestIdFeature?.TraceIdentifier != null)
-            {
-                _logger.LogInformation("Setting request id header: {requestId}", requestIdFeature.TraceIdentifier);
-                context.Response.Headers["RequestId"] = requestIdFeature.TraceIdentifier;
-            }
-            else 
-            {
-                _logger.LogInformation("No request id");
-            }
-
+            context.Response.Headers["RequestId"] = context.TraceIdentifier;
             await _next(context);
         }
     }

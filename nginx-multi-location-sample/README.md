@@ -2,9 +2,37 @@
 
 `cd` into here and run `docker-compose up`. From the host machine, run below commands:
 
-```
+```bash
 curl http://localhost:5000/stores -D - -w "\n"
 curl http://localhost:5000/products -D - -w "\n"
+```
+
+You should see responses like below:
+
+```
+tugberk@ubuntu:~/gifs$ curl http://localhost:5000/stores -D - -w "\n"
+HTTP/1.1 200 OK
+Server: nginx/1.9.9
+Date: Tue, 19 Jan 2016 22:46:23 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+RequestId: 0HKP143P3IODS
+
+["Store 1","Store 2","Store 3"]
+```
+
+```
+tugberk@ubuntu:~/gifs$ curl http://localhost:5000/products -D - -w "\n"
+HTTP/1.1 200 OK
+Server: nginx/1.9.9
+Date: Tue, 19 Jan 2016 22:47:09 GMT
+Content-Type: application/json; charset=utf-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+RequestId: 0HKP1481M41GI
+
+["Product 1","Product 2","Product 3"]
 ```
 
 ### Resources
