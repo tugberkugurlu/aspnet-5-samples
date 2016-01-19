@@ -10,7 +10,7 @@ stores:
   dockerfile: docker-stores-app.dockerfile
   container_name: nmlsample_stores
   ports:
-    - "5091:5090"
+    - "5092:5090"
 
 nginx:
   build: .
