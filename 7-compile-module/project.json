@@ -1,0 +1,16 @@
+{
+    "version": "1.0.0",
+    "dependencies": {
+        "Microsoft.Dnx.Compilation.CSharp.Abstractions": "1.0.0-rc1-final"
+    },
+    "frameworks": {
+        "dnx451": {
+            "frameworkAssemblies": {
+                "System.Runtime": "4.0.0.0",
+                "System.Threading.Tasks": "4.0.0.0",
+                "System.Reflection": "4.0.0.0"
+            }
+        },
+        "dnxcore50": {}
+    }
+}
